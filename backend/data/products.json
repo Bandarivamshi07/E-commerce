@@ -1,80 +1,80 @@
 [
   {
-    "name": "Vibe T-Shirt",
+    "name": "T-Shirt",
     "price": 299,
     "description": "Comfort cotton tee",
-    "image": "/images/tshirt.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/tshirt.jpg"
   },
   {
-    "name": "Vibe Sneakers",
+    "name": "Sneakers",
     "price": 2499,
     "description": "Casual sneakers",
-    "image": "/images/shoes.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/shoes.jpg"
   },
   {
-    "name": "Vibe Cap",
+    "name": "Cap",
     "price": 399,
     "description": "Adjustable cap",
-    "image": "/images/cap.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/cap.jpg"
   },
   {
-    "name": "Vibe Hoodie",
+    "name": "Hoodie",
     "price": 1299,
     "description": "Warm hoodie",
-    "image": "/images/hoodie.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/hoodie.jpg"
   },
   {
-    "name": "Vibe Backpack",
+    "name": "Backpack",
     "price": 1999,
     "description": "Daypack for everyday use",
-    "image": "/images/bag.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/bag.jpg"
   },
   {
-    "name": "Vibe Pants",
+    "name": "Pants",
     "price": 899,
     "description": "Slim fit stylish pants",
-    "image": "/images/pant.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/pant.jpg"
   },
   {
-    "name": "Vibe Jacket",
+    "name": "Jacket",
     "price": 1799,
     "description": "Winter wear jacket",
-    "image": "/images/jacket.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/jacket.jpg"
   },
   {
-    "name": "Vibe Wallet",
+    "name": "Wallet",
     "price": 499,
     "description": "Genuine leather wallet",
-    "image": "/images/wallet.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/wallet.jpg"
   },
   {
-    "name": "Vibe Watch",
+    "name": "Watch",
     "price": 1499,
     "description": "Stylish analog wrist watch",
-    "image": "/images/watch.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/watch.jpg"
   },
   {
-    "name": "Vibe Book",
+    "name": "Book",
     "price": 299,
     "description": "Notebook for creative ideas",
-    "image": "/images/book.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/book.jpg"
   },
   {
-    "name": "Vibe Bluetooth",
+    "name": "Bluetooth",
     "price": 699,
     "description": "Wireless Bluetooth earphones",
-    "image": "/images/bluetooth.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/bluetooth.jpg"
   },
   {
-    "name": "Vibe Mobile",
+    "name": "Mobile",
     "price": 8999,
     "description": "High quality smartphone",
-    "image": "/images/mobile.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/mobile.jpg"
   },
   {
-    "name": "Vibe Frock",
+    "name": "Frock",
     "price": 999,
     "description": "Trendy fashion frock",
-    "image": "/images/frock.jpg"
+    "image": "https://e-commerce-backend-1yu8.onrender.com/images/frock.jpg"
   }
 ]
