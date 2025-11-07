@@ -17,8 +17,8 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
 
-// ✅ Static files (if you have any images or uploads)
-app.use(express.static("public"));
+// ✅ Static files (for product images)
+app.use("/images", express.static("public/images"));
 
 // ✅ API Routes
 app.use("/api/products", productRoutes);
