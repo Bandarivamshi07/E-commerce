@@ -1,10 +1,10 @@
 import express from "express";
 import bcrypt from "bcryptjs";
-import User from "../models/user.js";
+import User from "../models/user.js"; // ✅ lowercase
 
 const router = express.Router();
 
-// ✅ REGISTER
+// REGISTER
 router.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -22,14 +22,14 @@ router.post("/register", async (req, res) => {
     const newUser = new User({ name, email, password: hashed });
     await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully ✅" });
+    res.status(201).json({ message: "User registered successfully" });
   } catch (err) {
     console.error("❌ Register error:", err);
     res.status(500).json({ error: "Server error" });
   }
 });
 
-// ✅ LOGIN
+// LOGIN
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -41,8 +41,8 @@ router.post("/login", async (req, res) => {
     if (!match) return res.status(400).json({ error: "Invalid credentials" });
 
     res.json({
-      message: "Login successful 🎉",
-      user: { _id: user._id, name: user.name, email: user.email },
+      message: "Login successful",
+      user: { id: user._id, name: user.name, email: user.email },
     });
   } catch (err) {
     console.error("❌ Login error:", err);
