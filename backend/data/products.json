@@ -1,0 +1,80 @@
+[
+  {
+    "name": "Vibe T-Shirt",
+    "price": 299,
+    "description": "Comfort cotton tee",
+    "image": "/images/tshirt.jpg"
+  },
+  {
+    "name": "Vibe Sneakers",
+    "price": 2499,
+    "description": "Casual sneakers",
+    "image": "/images/shoes.jpg"
+  },
+  {
+    "name": "Vibe Cap",
+    "price": 399,
+    "description": "Adjustable cap",
+    "image": "/images/cap.jpg"
+  },
+  {
+    "name": "Vibe Hoodie",
+    "price": 1299,
+    "description": "Warm hoodie",
+    "image": "/images/hoodie.jpg"
+  },
+  {
+    "name": "Vibe Backpack",
+    "price": 1999,
+    "description": "Daypack for everyday use",
+    "image": "/images/bag.jpg"
+  },
+  {
+    "name": "Vibe Pants",
+    "price": 899,
+    "description": "Slim fit stylish pants",
+    "image": "/images/pant.jpg"
+  },
+  {
+    "name": "Vibe Jacket",
+    "price": 1799,
+    "description": "Winter wear jacket",
+    "image": "/images/jacket.jpg"
+  },
+  {
+    "name": "Vibe Wallet",
+    "price": 499,
+    "description": "Genuine leather wallet",
+    "image": "/images/wallet.jpg"
+  },
+  {
+    "name": "Vibe Watch",
+    "price": 1499,
+    "description": "Stylish analog wrist watch",
+    "image": "/images/watch.jpg"
+  },
+  {
+    "name": "Vibe Book",
+    "price": 299,
+    "description": "Notebook for creative ideas",
+    "image": "/images/book.jpg"
+  },
+  {
+    "name": "Vibe Bluetooth",
+    "price": 699,
+    "description": "Wireless Bluetooth earphones",
+    "image": "/images/bluetooth.jpg"
+  },
+  {
+    "name": "Vibe Mobile",
+    "price": 8999,
+    "description": "High quality smartphone",
+    "image": "/images/mobile.jpg"
+  },
+  {
+    "name": "Vibe Frock",
+    "price": 999,
+    "description": "Trendy fashion frock",
+    "image": "/images/frock.jpg"
+  }
+]
