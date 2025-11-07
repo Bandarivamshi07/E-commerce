@@ -1,7 +1,8 @@
-const express = require("express");
+import express from "express";
+import bcrypt from "bcryptjs";
+import User from "../models/User.js";
+
 const router = express.Router();
-const User = require("../models/User");
-const bcrypt = require("bcryptjs");
 
 // ✅ REGISTER
 router.post("/register", async (req, res) => {
@@ -21,7 +22,7 @@ router.post("/register", async (req, res) => {
     const newUser = new User({ name, email, password: hashed });
     await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ message: "User registered successfully ✅" });
   } catch (err) {
     console.error("❌ Register error:", err);
     res.status(500).json({ error: "Server error" });
@@ -40,8 +41,8 @@ router.post("/login", async (req, res) => {
     if (!match) return res.status(400).json({ error: "Invalid credentials" });
 
     res.json({
-      message: "Login successful",
-      user: { id: user._id, name: user.name, email: user.email },
+      message: "Login successful 🎉",
+      user: { _id: user._id, name: user.name, email: user.email },
     });
   } catch (err) {
     console.error("❌ Login error:", err);
@@ -49,4 +50,4 @@ router.post("/login", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
