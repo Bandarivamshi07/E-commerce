@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import ProductCard from "../components/productcard.jsx"; // Ensure correct filename case
+import ProductCard from '../components/ProductCard.jsx';// Ensure correct filename case
+
+
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
