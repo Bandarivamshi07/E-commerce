@@ -1,47 +1,66 @@
 import mongoose from "mongoose";
 
-const orderSchema = new mongoose.Schema({
-  userId: {
-    type: String,
-    required: true,
-  },
-  items: [
-    {
-      productId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Product",
-        required: true,
-      },
-      name: String,
-      price: Number,
-      quantity: {
-        type: Number,
-        default: 1,
-      },
+const orderSchema = new mongoose.Schema(
+  {
+    userId: {
+      type: String,
+      required: true,
     },
-  ],
-  totalPrice: {
-    type: Number,
-    required: true,
+
+    items: [
+      {
+        productId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Product",
+          required: true,
+        },
+
+        // ADD THESE 👇👇👇
+        name: { 
+          type: String, 
+          required: true 
+        },
+
+        price: { 
+          type: Number, 
+          required: true 
+        },
+
+        image: { 
+          type: String, 
+          required: true 
+        },
+
+        qty: {
+          type: Number,
+          default: 1,
+        },
+      },
+    ],
+
+    address: { 
+      type: String, 
+      required: true 
+    },
+
+    paymentMethod: { 
+      type: String, 
+      default: "COD" 
+    },
+
+    status: { 
+      type: String, 
+      default: "Processing" 
+    },
+
+    totalPrice: { 
+      type: Number, 
+      required: true 
+    },
   },
-  address: {
-    type: String,
-    required: true,
-  },
-  paymentMethod: {
-    type: String,
-    enum: ["COD", "UPI", "CARD"],
-    default: "COD",
-  },
-  status: {
-    type: String,
-    default: "Processing",
-  },
-  date: {
-    type: Date,
-    default: Date.now,
-  },
-});
+
+  { timestamps: true }
+);
 
 const Order = mongoose.model("Order", orderSchema);
 export default Order;

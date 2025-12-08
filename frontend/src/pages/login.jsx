@@ -7,18 +7,27 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+// frontend/src/pages/login.jsx
+
+const handleLogin = async (e) => {
     e.preventDefault();
     try {
       const res = await API.post("/auth/login", { email, password });
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+
+      // This logic is designed to correctly find the user object
+      const userToSave = res.data.user ? res.data.user : res.data;
+
+      // This line saves the found object to the browser's memory
+      localStorage.setItem("user", JSON.stringify(userToSave));
+
       alert("✅ Login successful!");
-      // 🔁 This line triggers Navbar update instantly
-window.dispatchEvent(new Event("storage"));
-      navigate("/"); // Redirect to home after login
+
+      // This forces the browser to update everything
+      navigate("/");
+      window.location.reload();
+
     } catch (err) {
-      console.error(err);
-      alert("❌ Invalid credentials. Please try again.");
+      // ... error handling
     }
   };
 
@@ -49,6 +58,7 @@ window.dispatchEvent(new Event("storage"));
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
           style={{
             width: "100%",
             padding: "10px",
@@ -56,7 +66,6 @@ window.dispatchEvent(new Event("storage"));
             borderRadius: "6px",
             border: "1px solid #ccc",
           }}
-          required
         />
 
         <input
@@ -64,6 +73,7 @@ window.dispatchEvent(new Event("storage"));
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
           style={{
             width: "100%",
             padding: "10px",
@@ -71,7 +81,6 @@ window.dispatchEvent(new Event("storage"));
             borderRadius: "6px",
             border: "1px solid #ccc",
           }}
-          required
         />
 
         <button

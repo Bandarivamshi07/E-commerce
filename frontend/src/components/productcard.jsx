@@ -1,5 +1,3 @@
-
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../api";
@@ -7,9 +5,9 @@ import API from "../api";
 export default function ProductCard({ product }) {
   const navigate = useNavigate();
 
-  // ✅ Add to Cart function
+  // ✅ Add to Cart
   const handleAddToCart = async (e) => {
-    e.stopPropagation(); // prevent opening product detail page
+    e.stopPropagation();
     try {
       const user = JSON.parse(localStorage.getItem("user"));
       const userId = user?._id || "guest";
@@ -28,10 +26,15 @@ export default function ProductCard({ product }) {
     }
   };
 
-  // ✅ Handle product click (open details)
+  // ✅ Navigate to product details
   const handleCardClick = () => {
     navigate(`/product/${product._id}`);
   };
+
+  // ✅ Safe image link fix (for Render backend)
+  const imageURL = product.image.startsWith("http")
+    ? product.image
+    : `https://e-commerce-backend-1yu8.onrender.com${product.image}`;
 
   return (
     <div
@@ -55,11 +58,7 @@ export default function ProductCard({ product }) {
       }}
     >
       <img
-        src={
-          product.image?.startsWith("http")
-            ? product.image
-            : `http://localhost:5000${product.image}`
-        }
+        src={imageURL}
         alt={product.name}
         style={{
           width: "160px",
@@ -67,19 +66,22 @@ export default function ProductCard({ product }) {
           objectFit: "contain",
           marginBottom: "10px",
         }}
+        onError={(e) => {
+          // if image fails to load
+          e.target.src = "https://via.placeholder.com/160x160?text=No+Image";
+        }}
       />
 
-      {/* <h3>{product.name}</h3> */}
       <h3>{product.name.replace(/^Vibe\s*/i, "")}</h3>
-
       <p>₹{product.price}</p>
 
-      {/* Stop propagation so buttons work independently */}
       <div
-        style={{ display: "flex", gap: "8px", justifyContent: "center" }}
+        style={{ display: "flex",
+           gap: "8px",
+            justifyContent: "center",
+            flexDirection:"row" }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* 🛒 Add to Cart */}
         <button
           onClick={handleAddToCart}
           style={{
@@ -94,7 +96,6 @@ export default function ProductCard({ product }) {
           Add to Cart
         </button>
 
-        {/* ⚡ Buy Now */}
         <button
           onClick={() => navigate(`/product/${product._id}`)}
           style={{

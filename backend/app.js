@@ -3,11 +3,15 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cors from "cors";
 import morgan from "morgan";
+// import "./seeder.js";
 
 import productRoutes from "./routes/productroutes.js";
 import orderRoutes from "./routes/orderroutes.js";
 import authRoutes from "./routes/authroutes.js";
 import cartRoutes from "./routes/cartroutes.js";
+import path from "path";
+const __dirname = path.resolve();
+
 
 dotenv.config();
 const app = express();
@@ -18,13 +22,16 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // ✅ Static files (for product images)
-app.use("/images", express.static("public/images"));
+app.use("/images", express.static(path.join(__dirname, "public/images")));
+
+// app.use("/images", express.static("public/images"));
 
 // ✅ API Routes
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/cart", cartRoutes);
+
 
 // ✅ Root Route (for Render health check)
 app.get("/", (req, res) => {

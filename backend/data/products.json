@@ -3,78 +3,78 @@
     "name": "T-Shirt",
     "price": 299,
     "description": "Comfort cotton tee",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/tshirt.jpg"
+    "image": "/images/tshirt.jpg"
   },
   {
     "name": "Sneakers",
     "price": 2499,
     "description": "Casual sneakers",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/shoes.jpg"
+    "image": "/images/shoes.jpg"
   },
   {
     "name": "Cap",
     "price": 399,
     "description": "Adjustable cap",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/cap.jpg"
+    "image": "/images/cap.jpg"
   },
   {
     "name": "Hoodie",
     "price": 1299,
     "description": "Warm hoodie",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/hoodie.jpg"
+    "image": "/images/hoodie.jpg"
   },
   {
     "name": "Backpack",
     "price": 1999,
     "description": "Daypack for everyday use",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/bag.jpg"
+    "image": "/images/bag.jpg"
   },
   {
     "name": "Pants",
     "price": 899,
     "description": "Slim fit stylish pants",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/pant.jpg"
+    "image": "/images/pant.jpg"
   },
   {
     "name": "Jacket",
     "price": 1799,
     "description": "Winter wear jacket",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/jacket.jpg"
+    "image": "/images/jacket.jpg"
   },
   {
     "name": "Wallet",
     "price": 499,
     "description": "Genuine leather wallet",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/wallet.jpg"
+    "image": "/images/wallet.jpg"
   },
   {
     "name": "Watch",
     "price": 1499,
     "description": "Stylish analog wrist watch",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/watch.jpg"
+    "image": "/images/watch.jpg"
   },
   {
     "name": "Book",
     "price": 299,
     "description": "Notebook for creative ideas",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/book.jpg"
+    "image": "/images/book.jpg"
   },
   {
     "name": "Bluetooth",
     "price": 699,
     "description": "Wireless Bluetooth earphones",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/bluetooth.jpg"
+    "image": "/images/bluetooth.jpg"
   },
   {
     "name": "Mobile",
     "price": 8999,
     "description": "High quality smartphone",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/mobile.jpg"
+    "image": "/images/mobile.jpg"
   },
   {
     "name": "Frock",
     "price": 999,
     "description": "Trendy fashion frock",
-    "image": "https://e-commerce-backend-1yu8.onrender.com/images/frock.jpg"
+    "image": "/images/frock.jpg"
   }
 ]

@@ -2,21 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const navigate = useNavigate();
 
-  // ✅ Load user info & listen for changes
+  // ✅ Listen for changes in localStorage (login/logout events)
   useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) setUser(JSON.parse(storedUser));
-
-    const handleStorageChange = () => {
-      const updatedUser = localStorage.getItem("user");
-      setUser(updatedUser ? JSON.parse(updatedUser) : null);
+    const handleStorage = () => {
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      setUser(storedUser || null);
     };
 
-    window.addEventListener("storage", handleStorageChange);
-    return () => window.removeEventListener("storage", handleStorageChange);
+    window.addEventListener("storage", handleStorage);
+    return () => window.removeEventListener("storage", handleStorage);
   }, []);
 
   // ✅ Logout handler
@@ -38,21 +35,20 @@ export default function Navbar() {
   return (
     <>
       {/* 🟦 Main Navbar */}
-     <div
-  style={{
-    position: "sticky",
-    top: 0,
-    zIndex: 1000,
-    backgroundColor: "#0f1111",
-    color: "white",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "space-between",
-    padding: "10px 20px",
-    flexWrap: "wrap",
-  }}
->
-
+      <div
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 1000,
+          backgroundColor: "#0f1111",
+          color: "white",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          padding: "10px 20px",
+          flexWrap: "wrap",
+        }}
+      >
         {/* 🔹 Logo */}
         <Link
           to="/"
@@ -75,7 +71,7 @@ export default function Navbar() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            paddingLeft:"1.5em"
+            paddingLeft: "1.5em",
           }}
         >
           <input
@@ -106,47 +102,44 @@ export default function Navbar() {
           </button>
         </div>
 
-      {/* 🛒 Cart & 🧾 Orders Section (Perfectly Aligned) */}
-<div
-  style={{
-    display: "flex",
-    alignItems: "center",
-    gap: "18px",
-    paddingLeft: "1.5em",
-    fontSize: "18px",
-    lineHeight: "1.5", // helps keep equal height
-  }}
->
-  <Link
-    to="/cart"
-    style={{
-      ...linkStyle,
-      display: "flex",
-      alignItems: "center",
-      gap: "5px",
-    }}
-  >
-    <span style={{ fontSize: "20px" }}>🛒</span>
-    <span>Cart</span>
-  </Link>
+        {/* 🛒 Cart & Orders */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "18px",
+            paddingLeft: "1.5em",
+            fontSize: "18px",
+          }}
+        >
+          <Link
+            to="/cart"
+            style={{
+              ...linkStyle,
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+            }}
+          >
+            <span style={{ fontSize: "20px" }}>🛒</span>
+            <span style={{ fontSize: "17px" }}>Cart</span>
+          </Link>
 
-  <Link
-    to="/orders"
-    style={{
-      ...linkStyle,
-      display: "flex",
-      alignItems: "center",
-      gap: "5px",
-      marginTop: "2px", // 👈 slight correction for text height
-    }}
-  >
-    <span>🧾</span>
-    <span>Orders</span>
-  </Link>
-</div>
+          <Link
+            to="/orders"
+            style={{
+              ...linkStyle,
+              display: "flex",
+              alignItems: "center",
+              gap: "5px",
+            }}
+          >
+            <span style={{ fontSize: "18px" }}>🧾</span>
+            <span style={{ fontSize: "16px" }}>Orders</span>
+          </Link>
+        </div>
 
-
-        {/* 👤 Auth Section (Right Side) */}
+        {/* 👤 Auth Section */}
         <div style={{ display: "flex", alignItems: "center", gap: "15px" }}>
           {user ? (
             <>
@@ -170,10 +163,17 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <Link to="/login" style={linkStyle}>
+              <Link
+                to="/login"
+                style={{ fontSize: "20px", color: "white", textDecoration: "none" }}
+              >
                 Login
               </Link>
-              <Link to="/register" style={linkStyle}>
+
+              <Link
+                to="/register"
+                style={{ fontSize: "20px", color: "white", textDecoration: "none" }}
+              >
                 Sign Up
               </Link>
             </>
@@ -181,7 +181,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 🟨 Divider Line */}
+      {/* 🟨 Divider */}
       <div
         style={{
           height: "2px",
@@ -193,7 +193,7 @@ export default function Navbar() {
       {/* 🟫 Secondary Navbar */}
       <div
         style={{
-          backgroundColor: "black",
+          background: "linear-gradient(to right, #232f3e, #efba60, #232f3e)",
           color: "white",
           padding: "10px 25px",
           display: "flex",
@@ -202,7 +202,6 @@ export default function Navbar() {
           gap: "25px",
           fontSize: "15px",
           flexWrap: "wrap",
-          background: "linear-gradient(to right, #232f3e, #efba60, #232f3e)",
         }}
       >
         <span style={{ cursor: "pointer" }}>☰ All</span>

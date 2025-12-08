@@ -1,27 +1,168 @@
-:root { --gap: 12px; font-family: Inter, Arial, sans-serif; }
-body { margin:0; padding:0; background:#f7f7f8; color:#111; }
-.topbar { display:flex; justify-content:space-between; align-items:center; padding:12px 20px; background:#fff; box-shadow:0 1px 4px rgba(0,0,0,.06);}
-.container { padding:20px; max-width:1100px; margin: 0 auto;}
-.grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:var(--gap); }
-.card { background:#fff; padding:16px; border-radius:10px; box-shadow:0 1px 6px rgba(0,0,0,.06); display:flex; flex-direction:column; gap:8px;}
-.thumb { height:120px; display:flex; align-items:center; justify-content:center; background:#f0f0f2; border-radius:8px; }
-.placeholder { color:#999; }
-.btn { padding:8px 12px; border-radius:8px; cursor:pointer; border:0; background:#111; color:#fff; }
-.btn.danger { background:#c0392b; }
-.muted { color:#666; font-size:0.9rem; }
-.cart-item { display:flex; gap:12px; align-items:center; justify-content:space-between; background:#fff; padding:10px; margin-bottom:8px; border-radius:8px;}
-.qty-controls button { padding:4px 8px; }
-.modal-backdrop { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,.4); }
-.modal { background:#fff; padding:16px; border-radius:12px; width:320px; }
-@media (max-width:600px){ .grid{ grid-template-columns: 1fr 1fr; } .topbar h1{ font-size:16px } }
+:root {
+  --gap: 12px;
+  font-family: Inter, Arial, sans-serif;
+}
 
+body {
+  margin: 0;
+  padding: 0;
+  background: #f7f7f8;
+  color: #111;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .06);
+}
+
+.container {
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Product Grid */
+.grid {
+  display: flex;               /* use flexbox instead of grid */
+  flex-direction: column;      /* show products one below another */
+  gap: var(--gap);
+}
+
+/* Product Card */
+.card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .06);
+  gap: 16px;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .08);
+}
+
+/* Product Image */
+.thumb {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f2;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.thumb img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+/* Product Info */
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.placeholder {
+  color: #999;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 0;
+  background: #111;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #333;
+}
+
+.btn.danger {
+  background: #c0392b;
+}
+
+.muted {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Cart item */
+.cart-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.qty-controls button {
+  padding: 4px 8px;
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, .4);
+}
+
+.modal {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  width: 320px;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
+  .grid {
+    flex-direction: column; /* still vertical layout on mobile */
+  }
+
+  .card {
+    flex-direction: column; /* stack image above content */
+    text-align: center;
+  }
+
+  .thumb {
+    width: 100%;
+    height: 200px;
+  }
+
+  .card-content {
+    align-items: center;
+  }
+
   .hamburger-btn {
-    display: block !important; /* show menu button */
+    display: block !important;
   }
 
   .menu-items {
-    display: none !important; /* hide normal menu */
+    display: none !important;
     flex-direction: column;
     width: 100%;
     background: #232f3e;
@@ -36,5 +177,9 @@ body { margin:0; padding:0; background:#f7f7f8; color:#111; }
   nav {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .topbar h1 {
+    font-size: 16px;
   }
 }

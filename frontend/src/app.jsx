@@ -13,8 +13,8 @@ import Login from "./pages/login";
 import Register from "./pages/register";
 import ProductDetails from "./pages/productdetails";
 
-// 🔒 Auth Protection
-import ProtectedRoute from "./components/protectroute";
+// 🔒 Auth Protection - CORRECTLY IMPORTED
+import ProtectedRoute from "./components/protectedroute"; // Corrected import
 
 function App() {
   return (
