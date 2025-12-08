@@ -27,8 +27,9 @@ export default function ProductDetails() {
   if (!product) return <p>Loading...</p>;
 
   const imageURL = product.image?.startsWith("http")
-    ? product.image
-    : `https://e-commerce-backend-1yu8.onrender.com${product.image}`;
+  ? product.image
+  : `${import.meta.env.VITE_IMAGE_BASE_URL}${product.image}`;
+
 
   // ⭐ Add Review Submit
   const submitReview = async () => {

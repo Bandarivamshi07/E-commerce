@@ -32,9 +32,9 @@ export default function ProductCard({ product }) {
   };
 
   // ✅ Safe image link fix (for Render backend)
-  const imageURL = product.image.startsWith("http")
-    ? product.image
-    : `https://e-commerce-backend-1yu8.onrender.com${product.image}`;
+  const imageURL = product.image?.startsWith("http")
+  ? product.image
+  : `${import.meta.env.VITE_IMAGE_BASE_URL}${product.image}`;
 
   return (
     <div
