@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import ProductCard from '../components/productcard.jsx';// Ensure correct filename case
-
-
+import React, { useState, useEffect } from "react";
+import ProductCard from "../components/productcard.jsx";
+import API from "../api";   // ✅ IMPORTANT
 
 const ProductsPage = () => {
   const [products, setProducts] = useState([]);
@@ -9,12 +8,10 @@ const ProductsPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        // Fetch products from your backend API
-        const response = await fetch('/api/products');
-        const data = await response.json();
-        setProducts(data);
+        const res = await API.get("/products"); // ✅ CORRECT
+        setProducts(res.data);
       } catch (error) {
-        console.error('Failed to fetch products:', error);
+        console.error("Failed to fetch products:", error);
       }
     };
 
@@ -25,7 +22,6 @@ const ProductsPage = () => {
     <div className="products-container" style={{ padding: "20px" }}>
       <h1 style={{ marginBottom: "20px" }}>Latest Products</h1>
 
-      {/* ✅ Grid container for product cards */}
       <div
         className="product-list"
         style={{
