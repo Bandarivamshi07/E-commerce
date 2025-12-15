@@ -8,7 +8,7 @@ const ProductsPage = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await API.get("/products"); // ✅ ONLY THIS
+        const res = await API.get("/products");
         setProducts(res.data);
       } catch (error) {
         console.error("Failed to fetch products:", error);
@@ -25,7 +25,13 @@ const ProductsPage = () => {
       {products.length === 0 ? (
         <p>Loading products...</p>
       ) : (
-        <div style={{ display: "grid", gap: "20px" }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+            gap: "20px",
+          }}
+        >
           {products.map((p) => (
             <ProductCard key={p._id} product={p} />
           ))}
